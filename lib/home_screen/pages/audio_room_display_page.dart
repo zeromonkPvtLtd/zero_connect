@@ -52,7 +52,7 @@ class _AudioRoomDisplayPageState extends State<AudioRoomDisplayPage> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var height = size.height;
-    var width = size.width;
+    var width = size.height;
     return Scaffold(
       backgroundColor: Colors.grey.shade50,
       body: Column(
