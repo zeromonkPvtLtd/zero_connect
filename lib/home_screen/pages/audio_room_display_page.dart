@@ -10,44 +10,23 @@ class AudioRoomDisplayPage extends StatefulWidget {
 }
 
 class _AudioRoomDisplayPageState extends State<AudioRoomDisplayPage> {
-  List<AudioJoinModel> _roomModelList = [
-    AudioJoinModel(
-        creatorName: 'creatorName',
-        roomName: 'Noname',
-        roomId: 1,
-        Description: "Description",
-        timeCreated: DateTime.now()),
-    AudioJoinModel(
-        creatorName: 'creatorName1',
-        roomName: 'Noname',
-        roomId: 1,
-        Description: "Description",
-        timeCreated: DateTime.now()),
-    AudioJoinModel(
-        creatorName: 'creatorName2',
-        roomName: 'Noname',
-        roomId: 1,
-        Description: "Description",
-        timeCreated: DateTime.now()),
-    AudioJoinModel(
-        creatorName: 'creatorName3',
-        roomName: 'Noname',
-        roomId: 1,
-        Description: "Description",
-        timeCreated: DateTime.now()),
-    AudioJoinModel(
-        creatorName: 'creatorName4',
-        roomName: 'Noname',
-        roomId: 1,
-        Description: "Description",
-        timeCreated: DateTime.now()),
-    AudioJoinModel(
-        creatorName: 'creatorName5',
-        roomName: 'Noname',
-        roomId: 1,
-        Description: "Description",
-        timeCreated: DateTime.now()),
-  ];
+  final controllerRoomName = TextEditingController();
+  final controllerDescription = TextEditingController();
+
+  void addTransactions(String name, String description) {
+    final newTrx = AudioJoinModel(
+      creatorName: name,
+      roomName: name,
+      roomId: 1,
+      Description: description,
+      timeCreated: DateTime.now(),
+    );
+    setState(() {
+      _roomModelList.insert(0, newTrx);
+    });
+  }
+
+  List<AudioJoinModel> _roomModelList = [];
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -72,6 +51,7 @@ class _AudioRoomDisplayPageState extends State<AudioRoomDisplayPage> {
                             icon: Icon(Icons.account_circle),
                             labelText: 'Room Name',
                           ),
+                          controller: controllerRoomName,
                         ),
                         TextField(
                           decoration: InputDecoration(
@@ -80,12 +60,17 @@ class _AudioRoomDisplayPageState extends State<AudioRoomDisplayPage> {
                           ),
                           maxLines: 1,
                           maxLength: 50,
+                          controller: controllerDescription,
                         ),
                       ],
                     ),
                     buttons: [
                       DialogButton(
-                        onPressed: () => Navigator.pop(context),
+                        onPressed: () {
+                          addTransactions(controllerRoomName.text,
+                              controllerDescription.text);
+                          Navigator.pop(context);
+                        },
                         child: Text(
                           "LOGIN",
                           style: TextStyle(color: Colors.white, fontSize: 20),
@@ -115,7 +100,7 @@ class _AudioRoomDisplayPageState extends State<AudioRoomDisplayPage> {
             ),
           ),
           Container(
-            height: height / 1,
+            height: (size.height - (106 + 96)),
             child: ListView.builder(
               itemCount: _roomModelList.length,
               itemBuilder: (context, index) {

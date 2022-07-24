@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zero_connect/home_screen/pages/audio_room_display_page.dart';
+import 'package:zero_connect/home_screen/pages/chat_users_display_page.dart';
 import 'package:zero_connect/home_screen/pages/events_page.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -13,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
-  final Tabs = [AudioRoomDisplayPage(), EventsPage()];
+  final Tabs = [ChatUsersDisplayPage(), AudioRoomDisplayPage(), EventsPage()];
 
   @override
   Widget build(BuildContext context) {
