@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "992671273096",
+    "project_id": "zero-connect",
+    "storage_bucket": "zero-connect.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992671273096:android:45892374c844ee0c664f3d",
+        "android_client_info": {
+          "package_name": "com.example.zero_connect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "992671273096-4t5ue4ods9p4m244t5i9165piphhc66c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvy-267opsSZ5A8VKLWV3CTKUGfx2mr-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "992671273096-4t5ue4ods9p4m244t5i9165piphhc66c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

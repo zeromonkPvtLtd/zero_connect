@@ -3,7 +3,9 @@ import 'login_registration/email_check_screen.dart';
 import 'splash_screen.dart';
 import '/login_registration/email_check_screen.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
