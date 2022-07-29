@@ -34,7 +34,7 @@ class _SplashState extends State<Splash> {
             Container(
               height: MediaQuery.of(context).size.height * 0.9,
               padding:
-                  EdgeInsets.all(MediaQuery.of(context).size.longestSide / 10),
+                  EdgeInsets.all(MediaQuery.of(context).size.longestSide / 9),
               child: Image(
                 fit: BoxFit.scaleDown,
                 image: AssetImage('images/zero_logo.png'),

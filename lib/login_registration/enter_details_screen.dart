@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'components/text_field_login.dart';
 import '/home_screen/home_screen.dart';
 import 'package:image_picker/image_picker.dart';
@@ -10,8 +13,9 @@ class EnterDetailsScreen extends StatefulWidget {
 }
 
 class _EnterDetailsScreenState extends State<EnterDetailsScreen> {
-  late XFile _image;
-  final ImagePicker _picker = ImagePicker();
+  late var _image;
+  File? image;
+  bool imagePicked = false;
   DateTime? _selectedDate;
   final nameController = TextEditingController();
   final departmentController = TextEditingController();
@@ -38,33 +42,46 @@ class _EnterDetailsScreenState extends State<EnterDetailsScreen> {
                     radius: 100,
                     child: Padding(
                       padding: const EdgeInsets.all(1),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: Color(0xFFF2F2F2)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Icon(
-                              Icons.camera_alt_rounded,
-                              size: 30,
-                              color: Colors.black26,
-                            ),
-                            Text(
-                              'Tap to click/select ',
-                              style: TextStyle(
-                                  color: Colors.black26, fontSize: 14.sp),
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              'your profile picture',
-                              style: TextStyle(
-                                  color: Colors.black26, fontSize: 14.sp),
-                              textAlign: TextAlign.center,
+                      child: image != null
+                          ? ClipOval(
+                              child: Container(
+                                color: Colors.white,
+                                constraints:
+                                    BoxConstraints.tight(Size.fromRadius(95)),
+                                child: Image.file(
+                                  image!,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             )
-                          ],
-                        ),
-                      ),
+                          : Container(
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Color(0xFFF2F2F2)),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  Icon(
+                                    Icons.camera_alt_rounded,
+                                    size: 30,
+                                    color: Colors.black26,
+                                  ),
+                                  Text(
+                                    'Tap to click/select ',
+                                    style: TextStyle(
+                                        color: Colors.black26, fontSize: 14.sp),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  Text(
+                                    'your profile picture',
+                                    style: TextStyle(
+                                        color: Colors.black26, fontSize: 14.sp),
+                                    textAlign: TextAlign.center,
+                                  )
+                                ],
+                              ),
+                            ),
                     ),
                   ),
                   onTap: () {
@@ -259,7 +276,6 @@ class _EnterDetailsScreenState extends State<EnterDetailsScreen> {
       ],
     );
 
-    // show the dialog
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -310,17 +326,27 @@ class _EnterDetailsScreenState extends State<EnterDetailsScreen> {
                       icon: Icon(Icons.camera),
                       iconSize: 50.h,
                       onPressed: () {
-                        takePhoto(ImageSource.camera);
+                        pickImage(ImageSource.camera);
+                        Navigator.pop(context);
                       },
                     ),
                     IconButton(
                       icon: Icon(Icons.image, semanticLabel: 'Gallery'),
                       iconSize: 50.h,
                       onPressed: () {
-                        takePhoto(ImageSource.gallery);
+                        pickImage(ImageSource.gallery);
+                        Navigator.pop(context);
                       },
                     ),
-                  ])
+                  ]),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text('camera'),
+                  Text('Gallery'),
+                ],
+              )
             ],
           ),
         );
@@ -328,13 +354,16 @@ class _EnterDetailsScreenState extends State<EnterDetailsScreen> {
     );
   }
 
-  void takePhoto(ImageSource Source) async {
-    // ignore: deprecated_member_use
-    final pickedFile = await _picker.getImage(
-      source: Source,
-    );
-    setState(() {
-      _image = pickedFile as XFile;
-    });
+  Future pickImage(ImageSource source) async {
+    try {
+      final image = await ImagePicker().pickImage(source: source);
+      if (image == null) return;
+      final imageTemp = File(image.path);
+      setState(() {
+        this.image = imageTemp;
+      });
+    } on PlatformException catch (e) {
+      print('platform not supported');
+    }
   }
 }
