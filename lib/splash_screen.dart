@@ -31,13 +31,17 @@ class _SplashState extends State<Splash> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Expanded(
+            Container(
+              height: MediaQuery.of(context).size.height * 0.9,
+              padding:
+                  EdgeInsets.all(MediaQuery.of(context).size.longestSide / 10),
               child: Image(
+                fit: BoxFit.scaleDown,
                 image: AssetImage('images/zero_logo.png'),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 40),
+              padding: const EdgeInsets.only(bottom: 20),
               child: Text(
                 companyName,
                 textAlign: TextAlign.center,

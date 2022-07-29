@@ -5,17 +5,20 @@ class TextFieldLogin extends StatelessWidget {
   final TextInputType? textInputType;
   final IconData? iconData;
   final bool obscureText;
+  var controller = TextEditingController();
 
   TextFieldLogin(
       {required this.hintText,
       this.textInputType,
       this.iconData,
-      this.obscureText = false});
+      this.obscureText = false,
+      required this.controller});
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 40),
       child: TextField(
+        controller: controller,
         maxLines: 1,
         style: TextStyle(fontFamily: 'Roboto', color: Colors.black45),
         keyboardType: textInputType,

@@ -4,6 +4,7 @@ import 'splash_screen.dart';
 import '/login_registration/email_check_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
