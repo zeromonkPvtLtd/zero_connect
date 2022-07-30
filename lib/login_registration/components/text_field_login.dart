@@ -37,7 +37,7 @@ class TextFieldLogin extends StatelessWidget {
             color: Color(0xFFA3A3A3),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide(color: const Color(0xFFDFDFDF), width: 1.5),
           ),
           enabledBorder: OutlineInputBorder(

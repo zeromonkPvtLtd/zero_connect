@@ -7,7 +7,7 @@ packages:
       name: archive
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.3.0"
+    version: "3.3.1"
   async:
     dependency: transitive
     description:
@@ -22,6 +22,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  carousel_slider:
+    dependency: "direct main"
+    description:
+      name: carousel_slider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.1.1"
   characters:
     dependency: transitive
     description:
@@ -49,7 +56,7 @@ packages:
       name: cloud_firestore
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.4.1"
+    version: "3.4.2"
   cloud_firestore_platform_interface:
     dependency: transitive
     description:
@@ -63,14 +70,14 @@ packages:
       name: cloud_firestore_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.8.1"
+    version: "2.8.2"
   collection:
     dependency: transitive
     description:
       name: collection
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.16.0"
+    version: "1.15.0"
   cross_file:
     dependency: transitive
     description:
@@ -98,7 +105,6 @@ packages:
       name: fake_async
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
     version: "1.2.0"
   firebase_auth:
     dependency: "direct main"
@@ -148,7 +154,7 @@ packages:
       name: firebase_storage
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "10.3.3"
+    version: "10.3.4"
   firebase_storage_platform_interface:
     dependency: transitive
     description:
@@ -162,10 +168,7 @@ packages:
       name: firebase_storage_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.3.1"
-=======
-    version: "1.3.0"
->>>>>>> 609e81178d56fc7387ebf1300083ddb145389f2c
+    version: "3.3.2"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -257,7 +260,7 @@ packages:
       name: image_picker_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.5.0"
+    version: "2.6.0"
   intl:
     dependency: transitive
     description:
@@ -271,7 +274,7 @@ packages:
       name: js
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.4"
+    version: "0.6.3"
   lints:
     dependency: transitive
     description:
@@ -285,7 +288,7 @@ packages:
       name: lottie
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.3.0"
+    version: "1.4.0"
   matcher:
     dependency: transitive
     description:
@@ -299,7 +302,7 @@ packages:
       name: material_color_utilities
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.4"
+    version: "0.1.3"
   meta:
     dependency: transitive
     description:
@@ -313,7 +316,7 @@ packages:
       name: path
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.1"
+    version: "1.8.0"
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -346,7 +349,7 @@ packages:
       name: source_span
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.2"
+    version: "1.8.1"
   stack_trace:
     dependency: transitive
     description:
@@ -381,7 +384,7 @@ packages:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.9"
+    version: "0.4.8"
   typed_data:
     dependency: transitive
     description:
@@ -395,7 +398,7 @@ packages:
       name: vector_math
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.2"
+    version: "2.1.1"
 sdks:
-  dart: ">=2.17.0-0 <3.0.0"
+  dart: ">=2.16.1 <3.0.0"
   flutter: ">=2.10.0"

@@ -3,6 +3,7 @@ import 'package:zero_connect/home_screen/pages/audio_room_display_page.dart';
 import 'package:zero_connect/home_screen/pages/chat_users_display_page.dart';
 import 'package:zero_connect/home_screen/pages/events_page.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:zero_connect/home_screen/pages/post_display_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,13 +15,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
-  final Tabs = [ChatUsersDisplayPage(), AudioRoomDisplayPage(), EventsPage()];
+  final Tabs = [PostDisplayScreen(), EventsPage()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 5,
+        elevation: 0,
         centerTitle: true,
         titleTextStyle: TextStyle(color: Colors.black, fontSize: 20),
         backgroundColor: Colors.white,
